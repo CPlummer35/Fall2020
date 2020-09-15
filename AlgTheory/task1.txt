@@ -1,0 +1,34 @@
+Algorithm 1: LINEARSEARCH(A, k)
+Result: True if found otherwise False
+=====================================
+i:= 1
+found := FALSE;
+while i≤n and found=false do
+    if A[i]=k then
+        found:= TRUE
+    end
+    i:= i+1
+    end
+return found
+
+=====================================
+
+1. State a loop invariant for the while loop of the LinearSearch algorithm, and prove your claim.
+    A. All values at indices less than i are not the the target value. For example, k might be true when i = 0.
+2. Modify the algorithm so that it performs both forward and backward search until finding the element k.
+    i) The first and the last elements of the array are checked.
+    ii) If they do not contain k, the second and next to last elements are checked and so on until k is found.
+    iii) State a loop invariant for the while loop of the modified algorithm and prove/support your claim.
+
+
+    A. =====================================
+        i:= 0
+        found := FALSE;
+        while i≤n and found=false do
+            if A[i]=k then
+                found:= TRUE
+            end
+             i:= i+1
+        end
+        return found
+      =====================================

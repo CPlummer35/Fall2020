@@ -1,0 +1,56 @@
+Caiden Plummer
+Programming Languages
+Homework #1
+
+3. I think that Cobol and Fortran are still being used is because it is at the heart of a lot of software that is still being
+used today. I would imagine another reason for it still being used is security, less people would know the language so there is
+pontential for malicious attack.
+
+4. 
+    a. Fortran and PL/I share If statements and Do statements. Algol and PL/I share array calling (array[1:99]) and they both 
+use "End" to end a loop. Cobol and PL/I look completely different.
+
+    b. Pl/I looks very similar to Fortran and Algol, which both look similar to C or C++. Cobol looks entirely different to
+    these other languages.
+
+    c. PL/I might have never taken over because it was complex and ahead of its time. Another reason for it not taking off could
+    be that people were satisfied with what the had and didn't want to learn a new language.
+
+5. A language should require the declaration of variables due to the increase in clarity it gives the ideas expressed, as well as 
+the reduction in variable-related errors. In terms of readability, declaring variables in a language provides a large improvement, 
+as it makes the code much easier for a reader to understand. Writing code may become less confusing due to being able to organize 
+variables by data type. It may improve efficiency depending on what is required by the problem, some problems need Long Long ints
+but most don't. Declaring variables can improve security by reducing the possibility for errors to occur.
+
+6. In C++ this principle is really up to the programmer to implement. The programmer has the choice of when and where to declare 
+variables (in some cases). This allows them to make the choice whether they want to declare all together as soon as 
+possible in the code, or whether they want to put the declarations as close as possible to where they are used. I would disagree
+with this principle mostly because it makes sense to declare all variables at the start of a function so they are all in the same
+place.
+
+7. 
+    a. 
+        x = 5;
+        y = x * 2; // y = 10
+        z = sqr(5) - x; z = 95
+
+    b. 
+        x = 10;
+        y = x + t; y = 10 + t
+        t = sqr(x) - (x + y); // t = 100 - (20 + t)
+
+    c. 
+        switch I
+        {
+            case 1 :   cout <<  I * 2;
+            case 2 :   cout <<  I * 3;
+            case 3 :   cout <<  I * 4;
+            default :  cout <<  I;
+        }
+
+8. It’s easy to lose sight of what technology actually does to human lives and interests. Much of technology 
+involves the most sensitive aspects of human beings’ lives: their bodies, their finances, their social relationships, 
+and their emotional and mental states. Anybody can access this imformation and it can have a negative impact on their own 
+life.
+
+
