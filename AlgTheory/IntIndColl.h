@@ -8,6 +8,8 @@ class IntIndColl
         ~IntIndColl();
         void store(int, int);
         int retrieve(int) const;
+        IntIndColl(const IntIndColl&);
+        int& operator[](int);
     private:
         int *collection;
         int size;

@@ -32,3 +32,12 @@ return found
         end
         return found
       =====================================
+
+      Task 1 Times
+      int insertions sort
+      100k: 24.8119s
+      500k: 617.028s ~ 00:10:17:028s
+      1M: 2428.44s ~ 00:40:28:44s
+      10M: 
+      20M:
+

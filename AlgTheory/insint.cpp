@@ -1,5 +1,6 @@
 #include "IntIndColl.h"
 #include <iostream>
+#include <chrono>
 using namespace std;
 
 IntIndColl::IntIndColl(int sz)
@@ -35,6 +36,25 @@ int IntIndColl::retrieve(int index) const
     return collection[index];
 }
 
+int& IntIndColl::operator[](int index)
+{
+    if((index < 0) || (index > size-1))
+    {
+        cerr << "\nError: index is out of range";
+        exit(1);
+    }
+    return collection[index];
+}
+
+IntIndColl::IntIndColl(const IntIndColl& source)
+{
+    size = source.size;
+    collection = new int[size];
+    for(int i = 0; i < source.size; i++)
+    {
+        collection[i] = source.collection[i];
+    }
+}
 
 
 int main()
@@ -49,34 +69,38 @@ int main()
 
     for(i = 0; i < capacity; i++)
     {
-        data = rand() % capacity +1;
-        array.store(i, data);
+        array[i] = rand() % capacity +1;
     }
 
-    for(i = 0; i < capacity; i++)
-    {
-        data = array.retrieve(i);
-        cout << data << " ";
-        
-    }
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+
+    start = std::chrono::system_clock::now();
 
     int key, j;
     for (int i = 1; i < size; i++)
     {
-        key = array.retrieve(i);
+        key = array[i]; // take value
         j = i;
-        while ((j > 0) && array.retrieve(j - 1) > key)
+        while(j > 0 && array[j-1] > key)
         {
-            array.store(j, data) = array.retrieve(j - 1);
+            array[j] = array[j-1];
             j--;
         }
-        array.retrieve(j) = key;
-
+        array[j] = key; // insert into correct place
     }
+
+
+
+    end = std::chrono::system_clock::now();
+    
+    std::chrono::duration<double> elapsed_seconds = end - start;
+    cout << elapsed_seconds.count() << "s\n";
+    
+}
+
 
 
 
    
 
 
-}

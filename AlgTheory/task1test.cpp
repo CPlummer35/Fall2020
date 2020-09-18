@@ -12,6 +12,8 @@ class indColl
         ~indColl();
         void Store(int, T);
         T& Retrieve(int) const;
+        indColl(const indColl&)
+        T& operator[](int);
     private: 
         T *collection;
         int size;
@@ -30,48 +32,20 @@ indColl<T>::~indColl()
     delete [] collection;
 }
 
-template<typename T>
-void indColl<T>::Store(int index, T)
+template <typename T>
+T& operator[](int index)
 {
     if((index < 0) || (index > size-1))
     {
-        cerr << "\nERROR: index out of range\n";      
+        cerr << "\nError: index is out of range";
         exit(1);
     }
-
-    collection[index] = T;
+    return collection[index];
 }
 
 
 
 
-
-/*void insertionSort(indColl<int> *array, int size)
-{
-    int key, j;
-    for (int i = 1; i < size; i++)
-    {
-        key = array[i]; // take value
-        j = i;
-        while(j > 0 && array[j-1] > key)
-        {
-            array[j] = array[j-1];
-            j--;
-        }
-        array[j] = key; // insert into correct place
-    }
-}
-
-
-void display(indColl<int> *array, int size) //outputs array
-{
-    for (int i = 0; i < size; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << endl;
-}
-*/
 
 
 
