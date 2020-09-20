@@ -46,7 +46,7 @@ int& IntIndColl::operator[](int index)
     return collection[index];
 }
 
-IntIndColl::IntIndColl(const IntIndColl& source)
+IntIndColl::IntIndColl(IntIndColl& source)
 {
     size = source.size;
     collection = new int[size];
@@ -63,7 +63,7 @@ void swapping(int &a, int &b) {     //swap the content of a and b
    b = temp;
 }
 
-void merge(const IntIndColl& array, int l, int m, int r) 
+void merge(IntIndColl& array, int l, int m, int r) 
 {
    int i, j, k, nl, nr;
    //size of left and right sub-arrays
@@ -95,7 +95,7 @@ void merge(const IntIndColl& array, int l, int m, int r)
       j++; k++;
    }
 }
-void mergeSort(int *array, int l, int r) {
+void mergeSort(IntIndColl& array, int l, int r) {
    int m;
    if(l < r) {
       int m = l+(r-l)/2;
@@ -120,7 +120,7 @@ int main() {
 }
 
 
-
+/*
 int main()
 {
     int size, capacity, i, data;
@@ -146,3 +146,4 @@ int main()
 
 
 }
+*/
