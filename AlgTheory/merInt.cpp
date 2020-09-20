@@ -117,6 +117,10 @@ int main() {
    
    mergeSort(array, 0, n-1);     //(n-1) for last index
    cout << "Array after Sorting: ";
+   for (int i = 0; i < n; n++)
+   {
+      cout << array[i] << endl;
+   }
 }
 
 
