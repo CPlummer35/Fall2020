@@ -11,8 +11,8 @@ class LLIntIndColl
         LLIntIndColl(const LLIntIndColl&);
         long long int& operator[](long long int);
     private:
-        int *collection;
-        int size;
+        long long int *collection;
+        long long int size;
 };
 
 #endif
