@@ -38,6 +38,18 @@ return found
       100k: 24.8119s
       500k: 617.028s ~ 00:10:17:028s
       1M: 2428.44s ~ 00:40:28:44s
-      10M: 
-      20M:
+      10M: 121422 ~ 33:00:00s
+      20m: absurdly long
+
+      long long int insertion sort
+      100k: 25.1628s
+      500k: 632.336s
+      1M: 2714.08s
+      10M: 135700s
+      20M: insanely long
+
+
+
+
+      
 
