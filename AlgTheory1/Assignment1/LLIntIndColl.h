@@ -8,7 +8,7 @@ class LLIntIndColl
         ~LLIntIndColl();
         void store(long long int, long long int);
         long long int retrieve(long long int) const;
-        LLIntIndColl(const LLIntIndColl&);
+        LLIntIndColl(LLIntIndColl&);
         long long int& operator[](long long int);
     private:
         long long int *collection;

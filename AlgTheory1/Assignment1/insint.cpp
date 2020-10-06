@@ -21,7 +21,6 @@ void IntIndColl::store(int index, int value)
         cerr << "\nERROR: index out of range\n";      
         exit(1);
     }
-
     collection[index] = value;
 }
 
@@ -32,7 +31,6 @@ int IntIndColl::retrieve(int index) const
         cerr << "\nERRROR: index out of range \n";
         exit(1);
     }
-
     return collection[index];
 }
 
@@ -46,7 +44,7 @@ int& IntIndColl::operator[](int index)
     return collection[index];
 }
 
-IntIndColl::IntIndColl(const IntIndColl& source)
+IntIndColl::IntIndColl(IntIndColl& source)
 {
     size = source.size;
     collection = new int[size];
@@ -56,46 +54,35 @@ IntIndColl::IntIndColl(const IntIndColl& source)
     }
 }
 
-
 int main()
 {
     int size, capacity, i, data;
-
     cout << "Enter Array Size: ";
     cin >> size;
     IntIndColl array(size);
     cout << "how much of the array is occupied?: ";
     cin >> capacity;
-
     for(i = 0; i < capacity; i++)
     {
         array[i] = rand() % capacity +1;
     }
-
     std::chrono::time_point<std::chrono::system_clock> start, end;
-
     start = std::chrono::system_clock::now();
-
     int key, j;
     for (int i = 1; i < size; i++)
     {
-        key = array[i]; // take value
+        key = array[i];
         j = i;
         while(j > 0 && array[j-1] > key)
         {
             array[j] = array[j-1];
             j--;
         }
-        array[j] = key; // insert into correct place
+        array[j] = key;
     }
-
-
-
     end = std::chrono::system_clock::now();
-    
     std::chrono::duration<double> elapsed_seconds = end - start;
     cout << elapsed_seconds.count() << "s\n";
-    
 }
 
 

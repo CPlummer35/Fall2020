@@ -1,0 +1,137 @@
+Algorithm 1: LINEARSEARCH(A, k)
+Result: True if found otherwise False
+=====================================
+i:= 1
+found := FALSE;
+while i≤n and found=false do
+    if A[i]=k then
+        found:= TRUE
+    end
+    i:= i+1
+    end
+return found
+
+=====================================
+
+1. State a loop invariant for the while loop of the LinearSearch algorithm, and prove your claim.
+    A. All values at indices less than i are not the target value. For example, k might be true when i = 0.
+2. Modify the algorithm so that it performs both forward and backward search until finding the element k.
+    i) The first and the last elements of the array are checked.
+    ii) If they do not contain k, the second and next to last elements are checked and so on until k is found.
+    iii) State a loop invariant for the while loop of the modified algorithm and prove/support your claim.
+
+
+    A. =====================================
+        i:= 0
+        found := FALSE;
+        while i≤n and found=false do
+            if A[i]=k then
+                found:= TRUE
+            end
+             i:= i+1
+            if i = n
+            while i > 0 and found = false do
+                if A[i]=k then
+                found := TRUE
+            end
+             i:= i-1
+        
+        return found
+      =====================================
+
+      A. The invariance for this algorithm is that k has to be in the data structure
+
+Solution to the Problem:
+
+For the standard int insertion sort, I used the dynamically allocted array class provided by the textbook to 
+create my index collection. This was useful because it allowed me to create an array of any size. At first, I tried 
+using the templated version that the textbook provides but couldn't get it to work so I just used the standard class
+and created two different programs for my int and long long int programs. Instead of using the functions Store and Recieve, 
+I used the C++ operator function so my index collection can be called like a standard array using []. I used the rand() 
+function to fill my index collection with random ints. Then I used the chrono library to start a timer, run my insertion sort 
+algorithm then end the timer to give me the time it takes for the algorithm to sort the numbers. 
+My algorithm works by iterating from array[1] to array[size], compare the current element (key) to its predecessor, 
+then if the key element is smaller than its predecessor, compare it to the elements before. 
+Move the greater elements one position up to make space for the swapped element. I received my insertion sort algorithm 
+from Professor Ram Basnet's CS3 Repository on Github. 
+https://github.com/rambasnet/IntroToAlgorithms-Notebooks/blob/master/Sorting.ipynb
+
+For the long long int version of insertion sort, I simply changed all of the ints into long long ints on the index collection
+and it's partnered .h file. It would have been easier if I could get the templated version to work but instead I stuck
+with the standard class.
+
+For the standard int merge sort, I used I used the dynamically allocted array class provided by the textbook to 
+create my index collection. My merge sort algorithm divides the two collections in the middle, uses a mergeSort() function to
+sort each collection, then a merge() function to bring the two collections together. This method required the collection to 
+be passed by value into a function so I used the copy constructor supplied by the textbook. Once again I used the chrono library
+to time the Sorting. I received my insertion sort algorithm from Professor Ram Basnet's CS3 Repository on Github. 
+https://github.com/rambasnet/IntroToAlgorithms-Notebooks/blob/master/Sorting.ipynb
+
+For the long long int version I changed all the ints into long long ints.
+
+I ran each program at a collection size of 100k, 500k, 1M, 10M and 20M random numbers. 
+
+All my programs run by g++ filename.cpp to compile and ./a.out to run, on a Macintosh system. All compile and run
+with no errors or warnings.
+
+Times: 
+Task 1 Times
+      int insertions sort
+      100k: 24.8119s
+      500k: 617.028s
+      1M: 2428.44s
+      10M: 121422s
+      20m: absurdly long
+
+      long long int insertion sort
+      100k: 25.1628s
+      500k: 632.336s
+      1M: 2714.08s
+      10M: 135700s
+      20M: insanely long
+
+      int merge sort
+      100k: .080444s
+      500k: .362834s
+      1M: .745227s
+      10M: 8.37993s
+      20M: 18.066s
+      100M: 99.7161s
+
+      long long int merge sort
+      100k: .075222s
+      500k: .385969s
+      1M: .790804s
+      10M: 8.91334s
+      20M: 18.7202s
+      100M: 104.702s
+
+Observations:
+
+Obviously with insertion sort having the worst-case running time of O(n^2), I knew it was going to take a really
+long to sort. The 100k, 500k and million finished in a respectable amount of time but the 10M textbook roughly
+33 hours to finish so I decided not to run the 20M. Surprisingly the long long ints didn't take that much more
+time to sort then the regular ints, but it still took longer non-the-less. The merge sort was incredibly fast. 
+So fast that I let it sort 100M numbers just for fun. Which makes sense, it should be the fastest with a worst-case 
+run time of O(nlogn). Surprisingly, it was faster to sort 100k long long ints, then 100k ints. 
+This might be because I only ran that iteration a few times. For all other iterations the int was slighly faster 
+than long long ints. 
+
+From my study, the size of the integers does have a slight effect on sorting times, but it is minor. Also, 
+there wasn't an array size for which these two sorting algorithm's compared. Merge sort blazed through numbers 
+while insertion took it's time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+

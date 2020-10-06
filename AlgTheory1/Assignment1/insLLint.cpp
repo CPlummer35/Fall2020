@@ -24,7 +24,7 @@ long long int& LLIntIndColl::operator[](long long int index)
     return collection[index];
 }
 
-LLIntIndColl::LLIntIndColl(const LLIntIndColl& source)
+LLIntIndColl::LLIntIndColl(LLIntIndColl& source)
 {
     size = source.size;
     collection = new long long int[size];

@@ -1,0 +1,10 @@
+TASK 1: 
+A) False, adding a constant to every edge will change the shortest path.
+
+B) True, multiplying all edge by a number will never change the shortest path
+
+
+Planning:
+1. Create graph using class
+2. creare subgraph for all spanning tress
+3. 
