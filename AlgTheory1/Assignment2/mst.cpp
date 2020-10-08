@@ -1,6 +1,7 @@
 // C++ program for Kruskal's algorithm to find Minimum Spanning Tree 
 // of a given connected, undirected and weighted graph 
 #include <iostream> 
+#include <fstream>
 using namespace std; 
 
 // a structure to represent a weighted edge in graph 
@@ -152,7 +153,7 @@ int main()
 	6| 5\ |15 
 		| \ | 
 		2--------3 
-			4 */
+			4 
 	int V = 4; // Number of vertices in graph 
 	int E = 5; // Number of edges in graph 
 	Graph* graph = createGraph(V, E); 
@@ -185,7 +186,24 @@ int main()
 
 	KruskalMST(graph); 
 
+	*/
+	ifstream inf;
+	inf.open("distances.txt",ios::in); //open a file to perform read operation using file object
+   	if (inf.is_open()){   //checking whether the file is open
+    	string line;
+    	while(getline(inf, line))
+		{ //read data from file object and put it into string.
+        	if(line.)
+      	}
+
+
+    	inf.close(); //close the file object.
+   }
+
+
+
+
+
 	return 0; 
 } 
 
-// This code is contributed by rathbhupendra 
