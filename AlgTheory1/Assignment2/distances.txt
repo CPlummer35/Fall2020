@@ -1,4 +1,3 @@
-City, OH[Lat, Long] 
 * File "distances.txt" 
 * Distance data for highways 1949
 Youngstown, OH[4110,8065]115436
