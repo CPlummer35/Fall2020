@@ -339,7 +339,7 @@ void LinkedList<T>::PrintList()
         node = node->Next;
     }
 
-    std::cout << "NULL" << std::endl;
+    std::cout << std::endl;
 }
 
 

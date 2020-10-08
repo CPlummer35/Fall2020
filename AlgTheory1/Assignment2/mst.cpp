@@ -12,24 +12,18 @@ int main()
 	inf.open("distances.txt",ios::in); //open a file to perform read operation using file object
    	if (inf.is_open()){   //checking whether the file is open
     	string line;
-		/*
+		
     	while(getline(inf, line))
 		{ //read data from file object and put it into string.
         	if(line.find("*") == std::string::npos)
+			linkedList.InsertHead(line);
 			
 			
 
       	}
-		*/
-		
-		getline(inf, line);
-		linkedList.InsertHead(line);
-
-
-    	inf.close(); //close the file object.
+		inf.close(); //close the file object.
 
 		linkedList.PrintList();
-		cout << endl;
    }
    
 
