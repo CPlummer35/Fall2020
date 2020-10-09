@@ -8,22 +8,26 @@ using namespace std;
 
 bool contains_number(string &line)
 {
-    return (line.find_first_of("0123456789") != std::string::npos);
+	return (line.find_first_of("0123456789") != std::string::npos);
 }
 
 int main() 
 {
 	LinkedList<string> linkedList = LinkedList<string>();
 	ifstream inf;
-	inf.open("distances.txt",ios::in); //open a file to perform read operation using file object
+	inf.open("distances.txt"); //open a file to perform read operation using file object
    	if (inf.is_open())
-	{   //checking whether the file is open
+	{   
     	string line;
-		
-    	while(getline(inf, line))
+
+    	while(inf >> line)
 		{ //read data from file object and put it into string.
         	if(line.find("*") == std::string::npos)
 			{
+				if (contains_number(line) != true)
+				{
+					linkedList.InsertHead(line);
+				}
 				
 			}
 			
