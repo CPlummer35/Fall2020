@@ -3,20 +3,30 @@
 #include <fstream>
 #include "node.h"
 #include "LinkedList.h"
+#include <string>
 using namespace std; 
+
+bool contains_number(string &line)
+{
+    return (line.find_first_of("0123456789") != std::string::npos);
+}
 
 int main() 
 {
 	LinkedList<string> linkedList = LinkedList<string>();
 	ifstream inf;
 	inf.open("distances.txt",ios::in); //open a file to perform read operation using file object
-   	if (inf.is_open()){   //checking whether the file is open
+   	if (inf.is_open())
+	{   //checking whether the file is open
     	string line;
 		
     	while(getline(inf, line))
 		{ //read data from file object and put it into string.
         	if(line.find("*") == std::string::npos)
-			linkedList.InsertHead(line);
+			{
+				
+			}
+			
 			
 			
 
@@ -25,6 +35,7 @@ int main()
 
 		linkedList.PrintList();
    }
+   
    
 
   	/*linked list testing
