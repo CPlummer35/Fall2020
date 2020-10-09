@@ -6,9 +6,23 @@
 #include <string>
 using namespace std; 
 
-bool contains_number(string &line)
+bool contains_number(const std::string &line)
 {
-	return (line.find_first_of("0123456789") != std::string::npos);
+    if (line.find('0') != std::string::npos ||
+        line.find('1') != std::string::npos ||
+        line.find('2') != std::string::npos ||
+        line.find('3') != std::string::npos ||
+        line.find('4') != std::string::npos ||
+        line.find('5') != std::string::npos ||
+        line.find('6') != std::string::npos ||
+        line.find('7') != std::string::npos ||
+        line.find('8') != std::string::npos ||
+        line.find('9') != std::string::npos)
+    {
+        return true;
+    }
+
+    return false;
 }
 
 int main() 
@@ -17,28 +31,47 @@ int main()
 	ifstream inf;
 	inf.open("distances.txt"); //open a file to perform read operation using file object
    	if (inf.is_open())
-	{   
+	{  
     	string line;
 
-    	while(inf >> line)
+    	while(getline(inf, line))
 		{ //read data from file object and put it into string.
-        	if(line.find("*") == std::string::npos)
-			{
-				if (contains_number(line) != true)
-				{
-					linkedList.InsertHead(line);
-				}
-				
-			}
-			
-			
-			
 
-      	}
-		inf.close(); //close the file object.
+            
+            while(getline(inf, line))
+            { //read data from file object and put it into string.
+                if(line.find("*") == std::string::npos)
+                {
+                    if (line.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != std::string::npos)
+                    {
+                        if(line != "") 
+                        {
+                            string newLine;
+                            newLine = line.substr(0,line.find("["));
+                            linkedList.InsertHead(newLine);
+                        }
+                    } 
+                    else 
+                    {
+                        // Is the distances
+                    }
+                }
+            }
+        }
+    }
+        
+        
+        
+    
+        
 
-		linkedList.PrintList();
-   }
+
+
+
+    linkedList.PrintList();
+	inf.close(); //close the file object.
+    
+   
    
    
 

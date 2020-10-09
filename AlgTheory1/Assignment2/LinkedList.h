@@ -335,7 +335,7 @@ void LinkedList<T>::PrintList()
 
     while(node != NULL)
     {
-        std::cout << node->Value << " -> ";
+        std::cout << node->Value << " -> " << std::endl;
         node = node->Next;
     }
 
