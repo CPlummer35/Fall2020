@@ -6,67 +6,49 @@
 #include <string>
 using namespace std; 
 
-bool contains_number(const std::string &line)
-{
-    if (line.find('0') != std::string::npos ||
-        line.find('1') != std::string::npos ||
-        line.find('2') != std::string::npos ||
-        line.find('3') != std::string::npos ||
-        line.find('4') != std::string::npos ||
-        line.find('5') != std::string::npos ||
-        line.find('6') != std::string::npos ||
-        line.find('7') != std::string::npos ||
-        line.find('8') != std::string::npos ||
-        line.find('9') != std::string::npos)
-    {
-        return true;
-    }
-
-    return false;
-}
-
-int main() 
+int main(int argc, char **argv) 
 {
 	LinkedList<string> linkedList = LinkedList<string>();
 	ifstream inf;
-	inf.open("distances.txt"); //open a file to perform read operation using file object
+
+	inf.open(argv[1]); //open a file to perform read operation using file object
    	if (inf.is_open())
 	{  
     	string line;
+        bool processingCity = false;
+        string cityState;
+        // Array of distance
 
-    	while(getline(inf, line))
-		{ //read data from file object and put it into string.
-
-            
-            while(getline(inf, line))
-            { //read data from file object and put it into string.
-                if(line.find("*") == std::string::npos)
+        
+        
+        while(getline(inf, line))
+        { //read data from file object and put it into string.
+            if(line.find("*") == std::string::npos)
+            {
+                if (line.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != std::string::npos)
                 {
-                    if (line.find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") != std::string::npos)
-                    {
-                        if(line != "") 
-                        {
-                            string newLine;
-                            newLine = line.substr(0,line.find("["));
-                            linkedList.InsertHead(newLine);
-                        }
-                    } 
-                    else 
-                    {
-                        // Is the distances
+                    if(processingCity) {
+                        linkedList.InsertHead(cityState);
+                        cityState = "";
+                        processingCity = false;
                     }
+                    if(line != "") 
+                    {
+                        cityState = line.substr(0,line.find("["));
+                        processingCity = true;
+                    }
+                } 
+                else 
+                {
+                    // Is the distances
+                    cout << line << endl;
+                    // Split the distance line string into an array of integers
                 }
             }
         }
     }
         
         
-        
-    
-        
-
-
-
 
     linkedList.PrintList();
 	inf.close(); //close the file object.
@@ -149,7 +131,6 @@ int main()
     cout << endl;
 
 	*/
-
 
 
 
